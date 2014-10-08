@@ -4,5 +4,5 @@ function dragstart(event) {
 }
 </script>
 <% @schedules.each.with_index do |schedule, index| %>
-  <div id="schedule<%= index %>" draggable="true" ondragstart="dragstart(event);"><%= schedule.start_at %>, <%= schedule.end_at %>, <%= schedule.title %></div>
+  <div id="schedule<%= index %>" draggable="true" ondragstart="dragstart(event);" style="cursor: move"><%= schedule.start_at %>, <%= schedule.end_at %>, <%= schedule.title %></div>
 <% end %>
