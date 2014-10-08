@@ -2,7 +2,19 @@
 function dragstart(event) {
   event.dataTransfer.setData("text", event.target.id);
 }
+function dragover(event) {
+  event.preventDefault();
+}
+function drop(event) {
+  var id = event.dataTransfer.getData("text");
+  var elm = document.getElementById(id);
+  event.currentTarget.appendChild(elm);
+  event.preventDefault();
+}
 </script>
 <% @schedules.each.with_index do |schedule, index| %>
   <div id="schedule<%= index %>" draggable="true" ondragstart="dragstart(event);" style="cursor: move"><%= schedule.start_at %>, <%= schedule.end_at %>, <%= schedule.title %></div>
 <% end %>
+<div ondragover="dragover(event);" ondrop="drop(event);">
+  <p>drop here</p>
+</div>
