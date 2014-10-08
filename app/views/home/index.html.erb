@@ -1,3 +1,8 @@
-<% @schedules.each do |schedule| %>
-  <p><%= schedule.start_at %>, <%= schedule.end_at %>, <%= schedule.title %></p>
+<script type="text/javascript">
+function dragstart(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+</script>
+<% @schedules.each.with_index do |schedule, index| %>
+  <div id="schedule<%= index %>" draggable="true" ondragstart="dragstart(event);"><%= schedule.start_at %>, <%= schedule.end_at %>, <%= schedule.title %></div>
 <% end %>
