@@ -12,8 +12,8 @@ function drop(event) {
   event.preventDefault();
 }
 </script>
-<% @schedules.each.with_index do |schedule, index| %>
-  <div id="schedule<%= index %>" draggable="true" ondragstart="dragstart(event);" style="cursor: move"><%= schedule.start_at %>, <%= schedule.end_at %>, <%= schedule.title %></div>
+<% @schedules.each do |schedule| %>
+  <div id="schedule<%= schedule.id %>" draggable="true" ondragstart="dragstart(event);" style="cursor: move"><%= schedule.start_at %>, <%= schedule.end_at %>, <%= schedule.title %></div>
 <% end %>
 <div ondragover="dragover(event);" ondrop="drop(event);">
   <p>drop here</p>
