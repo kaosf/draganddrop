@@ -42,37 +42,17 @@
     <script type="text/javascript">
       function dragstart(event) {
         event.dataTransfer.setData("text", "foo");
-        var timerId = setInterval(function () {
-          var element = document.getElementById('nd');
-          element.innerHTML = '';
-          var w = (element.currentStyle || document.defaultView.getComputedStyle(element, '')).width
-          w = parseInt(w);
-          if (w > 30) {
-            w -= 30;
-          }
-          else {
-            w = 1;
-          }
-          element.style.width = w + 'px'
-          if (w == 1) {
-            clearInterval(timerId);
-          }
-        }, 16);
-        event.currentTarget.style.display = 'none';
       }
       function dragenter(event) {
-        event.currentTarget.style.backgroundColor = 'blue';
         event.preventDefault();
       }
       function dragleave(event) {
-        event.currentTarget.style.backgroundColor = 'aqua';
         event.preventDefault();
       }
       function dragover(event) {
         event.preventDefault();
       }
       function drop(event) {
-        event.currentTarget.style.backgroundColor = 'aqua';
         event.preventDefault();
       }
     </script>
