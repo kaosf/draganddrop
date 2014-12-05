@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Drag and drop</title>
+    <style type="text/css">
+      div.droparea {
+        height: 110px;
+        width: 110px;
+        border: solid 1px black;
+        background-color: aqua;
+      }
+      div.draggable {
+        height: 100px;
+        width: 100px;
+        margin: 5px;
+        border: solid 1px black;
+        opacity: 0.9;
+        background-color: yellow;
+      }
+      div.notdraggable {
+        height: 200px;
+        width: 100px;
+        margin: 5px;
+        border: solid 1px black;
+        opacity: 0.5;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="a1" class="droparea" draggable="false" ondragover="dragover(event);" ondragenter="dragenter(event);" ondragleave="dragleave(event);" ondrop="drop(event);">
+      <div id="d" class="draggable" draggable="true" ondragstart="dragstart(event);">draggable object</div>
+    </div>
+    <div id="a2" class="droparea" draggable="false" ondragover="dragover(event);" ondragenter="dragenter(event);" ondragleave="dragleave(event);" ondrop="drop(event);">
+      <div id="nd" class="notdraggable">not draggable object</div>
+    </div>
+    <div id="a3" class="droparea" draggable="false" ondragover="dragover(event);" ondragenter="dragenter(event);" ondragleave="dragleave(event);" ondrop="drop(event);">
+    </div>
+    <div id="a4" class="droparea" draggable="false" ondragover="dragover(event);" ondragenter="dragenter(event);" ondragleave="dragleave(event);" ondrop="drop(event);">
+    </div>
+    <script type="text/javascript">
+      function dragstart(event) {
+        event.dataTransfer.setData("text", "foo");
+      }
+      function dragenter(event) {
+        event.preventDefault();
+      }
+      function dragleave(event) {
+        event.preventDefault();
+      }
+      function dragover(event) {
+        event.preventDefault();
+      }
+      function drop(event) {
+        event.preventDefault();
+      }
+    </script>
+  </body>
+</html>
