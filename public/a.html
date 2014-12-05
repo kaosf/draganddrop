@@ -15,7 +15,6 @@
         width: 100px;
         margin: 5px;
         border: solid 1px black;
-        opacity: 0.9;
         background-color: yellow;
       }
       div.notdraggable {
@@ -42,8 +41,10 @@
     <script type="text/javascript">
       function dragstart(event) {
         event.dataTransfer.setData("text", "foo");
+        document.getElementById('a3').style.zIndex = 2;
       }
       function dragenter(event) {
+        console.log(event.currentTarget.id);
         event.preventDefault();
       }
       function dragleave(event) {
